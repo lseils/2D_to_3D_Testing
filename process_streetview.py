@@ -39,7 +39,7 @@ def generate_pointcloud(input_folder, output_folder):
 
     # Passing a list of images triggers multi-view 3D reconstruction
     prediction = model.inference(
-        images=image_paths,
+        image=image_paths,
         export_dir=output_folder,
         export_format="ply"  # 'ply' is the standard point cloud format
     )
