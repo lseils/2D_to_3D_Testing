@@ -1,0 +1,47 @@
+
+------------------------------------------------------------------------------
+Future tip: If you ever clone your repository to a new machine, 
+the Depth_Anything folder will be empty by default. 
+You will need to tell Git to fetch the submodule contents by cloning with:
+#
+#	git clone --recursive <your-repo-url>
+#
+# or by running:
+#
+#	git submodule update --init --recursive
+#
+#after a standard clone.
+
+------------------------------------------------------------------------------
+The Virtual Enviornment: (enviornment created using Andaconda Prompt)
+To activate this environment, use
+#
+#     conda activate da3_env
+#
+# To deactivate an active environment, use
+#
+#     conda deactivate
+
+------------------------------------------------------------------------------
+How you use street-view images:
+Sequential Street View (Unified Point Cloud): 
+If your images are a sequence of someone driving or walking down a specific street, 
+passing the entire list of images at once (like in the script above) is the best approach. 
+DA3 will estimate the camera movements between the frames and stitch them together into one unified, 
+globally consistent 3D point cloud[1].
+
+Random Street Views (Individual Point Clouds): 
+If your folder contains a bunch of random, unrelated street views (e.g., one picture in New York, another in Tokyo), 
+you do not want to pass them as a list. The model will desperately try to stitch them together and fail. 
+#Instead, modify the script to loop over:
+#
+#	image_paths
+#
+#and pass them to 
+# 
+#	model.inference(images=[img_path], ...) 
+#
+#one by one.
+
+------------------------------------------------------------------------------
+
