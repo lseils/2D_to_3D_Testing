@@ -1,5 +1,9 @@
 import os
 import requests
+from dotenv import load_dotenv
+
+# load enviornment variables from the .env file
+load_dotenv()
 
 
 API_KEY = os.getenv("GOOGLE_MAPS_API_KEY")
@@ -48,9 +52,15 @@ if __name__ == "__main__":
     # List of GPS coordinates moving forward down a street
     # (Example: moving down a block in New York City)
     path_coordinates =[
-        (40.758896, -73.985130),
-        (40.759000, -73.985000),
-        (40.759100, -73.984850)
+        (33.76433, -84.38209),
+        (33.76453, -84.38209),
+        (33.76473, -84.38209),
+        (33.76493, -84.38209),
+        (33.76513, -84.38209),
+        (33.76533, -84.38209),
+        (33.76553, -84.38209),
+        (33.76573, -84.38209),
+        (33.76593, -84.38209)
     ]
     
     print("Downloading forward-facing sequence...")
@@ -70,8 +80,8 @@ if __name__ == "__main__":
     # Great for wrapping a point cloud around the camera
     # ==========================================
     
-    target_lat = 40.758896
-    target_lng = -73.985130
+    target_lat = 33.76433
+    target_lng = -84.38209
     
     print("\nDownloading 360-degree sweep...")
     # Headings: 0, 60, 120, 180, 240, 300 (6 overlapping shots)
