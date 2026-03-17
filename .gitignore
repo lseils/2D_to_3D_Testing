@@ -17,3 +17,4 @@ Thumbs.db
 
 # VSCode settings (optional)
 .vscode/
+.venv/
