@@ -59,14 +59,7 @@ if __name__ == "__main__":
         (33.76513, -84.38209),
         (33.76533, -84.38209),
         (33.76553, -84.38209),
-        (33.76573, -84.38209),
-        (33.76593, -84.38209),
-        (33.76613, -84.38209),
-        (33.76633, -84.38209),
-        (33.76653, -84.38209),
-        (33.76673, -84.38209),
-        (33.76693, -84.38209),
-        (33.76713, -84.38209)
+        (33.76573, -84.38209)
     ]
     
     print("Downloading forward-facing sequence...")
@@ -87,7 +80,7 @@ if __name__ == "__main__":
     # SCENARIO B: 360 Sweep from ONE Location
     # Great for wrapping a point cloud around the camera
     # ==========================================
-    
+    '''
     target_lat = 33.76433
     target_lng = -84.38209
     
@@ -102,3 +95,4 @@ if __name__ == "__main__":
             save_folder=OUTPUT_FOLDER,
             file_name=f"sweep_heading_{heading}.jpg"
         )
+        '''

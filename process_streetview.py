@@ -1,12 +1,6 @@
 import os
 import glob
-import sys
 import torch
-
-da3_path = os.path.abspath(os.path.join("Depth_Anything", "src"))
-sys.path.append(da3_path)
-
-
 from depth_anything_3.api import DepthAnything3
 
 def generate_pointcloud(input_folder, output_folder):
@@ -29,7 +23,7 @@ def generate_pointcloud(input_folder, output_folder):
     # 3. Load the DA3 Model 
     # Options: "depth-anything/da3-small", "depth-anything/da3-base", "depth-anything/da3-large"
     print("Loading Depth Anything 3 model into VRAM...")
-    model = DepthAnything3.from_pretrained("depth-anything/da3-large")
+    model = DepthAnything3.from_pretrained("depth-anything/da3-base")
     model = model.to(device)
 
     # 4. Run the inference pipeline
@@ -37,11 +31,11 @@ def generate_pointcloud(input_folder, output_folder):
     
     os.makedirs(output_folder, exist_ok=True)
 
-    # Passing a list of images triggers multi-view 3D reconstruction
-    prediction = model.inference(
-        image=image_paths,
-        export_dir=output_folder,
-        export_format="ply"  # 'ply' is the standard point cloud format
+    with torch.autocast(device_type="cuda", dtype=torch.float16):
+        prediction = model.inference(
+            image=image_paths,
+            export_dir=output_folder,
+            export_format="glb"
     )
 
     print(f"Success! Point cloud saved to: {output_folder}")
