@@ -51,15 +51,23 @@ if __name__ == "__main__":
     
     # List of GPS coordinates moving forward down a street
     # (Example: moving down a block in New York City)
+    # path_coordinates =[
+    #     (33.76433, -84.38209),
+    #     (33.76453, -84.38209),
+    #     (33.76473, -84.38209),
+    #     (33.76493, -84.38209),
+    #     (33.76513, -84.38209),
+    #     (33.76533, -84.38209),
+    #     (33.76553, -84.38209),
+    #     (33.76573, -84.38209)
+    # ]
+
     path_coordinates =[
         (33.76433, -84.38209),
+        (33.76443, -84.38209),
         (33.76453, -84.38209),
-        (33.76473, -84.38209),
-        (33.76493, -84.38209),
-        (33.76513, -84.38209),
-        (33.76533, -84.38209),
-        (33.76553, -84.38209),
-        (33.76573, -84.38209)
+        (33.76463, -84.38209)
+        
     ]
     
     print("Downloading forward-facing sequence...")
@@ -80,8 +88,8 @@ if __name__ == "__main__":
     # SCENARIO B: 360 Sweep from ONE Location
     # Great for wrapping a point cloud around the camera
     # ==========================================
-    '''
-    target_lat = 33.76433
+    
+    target_lat = 33.76533
     target_lng = -84.38209
     
     print("\nDownloading 360-degree sweep...")
@@ -95,4 +103,4 @@ if __name__ == "__main__":
             save_folder=OUTPUT_FOLDER,
             file_name=f"sweep_heading_{heading}.jpg"
         )
-        '''
+        
