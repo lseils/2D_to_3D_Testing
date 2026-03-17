@@ -6,7 +6,7 @@ import torch
 da3_path = os.path.abspath(os.path.join("Depth_Anything", "src"))
 sys.path.append(da3_path)
 
-import torch
+
 from depth_anything_3.api import DepthAnything3
 
 def generate_pointcloud(input_folder, output_folder):

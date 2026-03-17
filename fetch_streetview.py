@@ -60,17 +60,25 @@ if __name__ == "__main__":
         (33.76533, -84.38209),
         (33.76553, -84.38209),
         (33.76573, -84.38209),
-        (33.76593, -84.38209)
+        (33.76593, -84.38209),
+        (33.76613, -84.38209),
+        (33.76633, -84.38209),
+        (33.76653, -84.38209),
+        (33.76673, -84.38209),
+        (33.76693, -84.38209),
+        (33.76713, -84.38209)
     ]
     
     print("Downloading forward-facing sequence...")
     for index, (lat, lng) in enumerate(path_coordinates):
         # Using heading 45 (Northeast) to face down the road
+        # Using heading 180 (South) to face down the road
+        # Using heading 270 (West) to face down the road
         download_streetview(
             api_key=API_KEY,
             lat=lat,
             lng=lng,
-            heading=45, 
+            heading=270, 
             save_folder=OUTPUT_FOLDER,
             file_name=f"sequence_{index:03d}.jpg"
         )
